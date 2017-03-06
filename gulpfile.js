@@ -160,6 +160,16 @@ gulp.task('serve', ['styles', 'elements', 'catalog:dev'], function () {
   gulp.watch(['app/images/**/*'], reload);
 });
 
+gulp.task('serve:built', function () {
+  browserSync({
+    notify: false,
+    // Run as an https by uncommenting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    // https: true,
+    server: 'dist'
+  });
+});
 // Build and serve the output from the dist build
 gulp.task('serve:dist', ['default'], function () {
   browserSync({
@@ -170,6 +180,13 @@ gulp.task('serve:dist', ['default'], function () {
     // https: true,
     server: 'dist'
   });
+});
+
+gulp.task('notclean', function (cb) {
+  runSequence(
+    'catalog:dist',
+    'polybuild',
+    cb);
 });
 
 // Build Production Files, the Default Task

@@ -1,4 +1,4 @@
-# Polymer Element Catalog
+# Things Element Catalog
 
 ## Getting Started
 
@@ -11,6 +11,8 @@ To install dependencies:
 To start a local development server:
 
     npm run serve
+    gulp serve
+    
     
 To start a local development server with `fixtures` turned on:
 
@@ -19,6 +21,8 @@ To start a local development server with `fixtures` turned on:
 To prepare the repo for publication:
 
     npm run build
+    gulp
+    gulp serve:dist
     
 Note: Make sure that you're running chrome 42 or later!
     
